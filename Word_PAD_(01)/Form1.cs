@@ -17,6 +17,26 @@ namespace Word_PAD__01_
             InitializeComponent();
         }
 
-      
+        private void XuLyOpenClick(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            ofd.Filter = "Text files |*txt | My Word| *rtf";
+
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                var fileName = ofd.FileName;
+                var ext = System.IO.Path.GetExtension(fileName);
+                if (ext == ".txt")
+                {
+                    richTextBox1.LoadFile(fileName, RichTextBoxStreamType.PlainText);
+                }
+                else if (ext == ".rtf")
+                {
+                    richTextBox1.LoadFile(fileName, RichTextBoxStreamType.RichText);
+                }
+            }
+
+
+        }
     }
 }
