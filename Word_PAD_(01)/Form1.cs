@@ -38,5 +38,24 @@ namespace Word_PAD__01_
 
 
         }
+
+        private void XuLySave(object sender, EventArgs e)
+        {
+            var sfd = new SaveFileDialog();
+            sfd.Filter = "Text files |*txt | My Word| *rtf";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                var fileName = sfd.FileName;
+                var ext = System.IO.Path.GetExtension(fileName);
+                if (ext == ".txt")
+                {
+                    richTextBox1.SaveFile(fileName, RichTextBoxStreamType.PlainText);
+                }
+                else if (ext == ".rtf")
+                {
+                    richTextBox1.SaveFile(fileName, RichTextBoxStreamType.RichText);
+                }
+            }
+        }
     }
 }
