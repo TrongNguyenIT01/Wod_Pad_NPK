@@ -175,5 +175,26 @@ namespace Word_PAD__01_
                 richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
             }
         }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionLength > 0)
+            {
+                richTextBox1.Copy();
+            }
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionLength > 0)
+            {
+                richTextBox1.Cut();
+            }
+        }
+
+        private void pastToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Paste();
+        }
     }
 }
