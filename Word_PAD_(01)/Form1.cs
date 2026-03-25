@@ -12,6 +12,9 @@ namespace Word_PAD__01_
 {
     public partial class Form1 : Form
     {
+        private string currentFilePath = string.Empty;
+
+       
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +25,7 @@ namespace Word_PAD__01_
             var ofd = new OpenFileDialog();
             ofd.Filter = "Text files |*txt | My Word| *rtf";
 
-            if(ofd.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 var fileName = ofd.FileName;
                 var ext = System.IO.Path.GetExtension(fileName);
@@ -36,24 +39,50 @@ namespace Word_PAD__01_
                 }
             }
 
+            currentFilePath = ofd.FileName;
+
 
         }
 
-        private void XuLySave(object sender, EventArgs e)
+
+        private void XuLySaveAs(object sender, EventArgs e)
         {
             var sfd = new SaveFileDialog();
-            sfd.Filter = "Text files |*txt | My Word| *rtf";
+            sfd.Filter = "Text files (*.txt)|*.txt|Rich Text Format (*.rtf)|*.rtf";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                var fileName = sfd.FileName;
-                var ext = System.IO.Path.GetExtension(fileName);
+
+                currentFilePath = sfd.FileName;
+
+                var ext = System.IO.Path.GetExtension(currentFilePath).ToLower();
                 if (ext == ".txt")
                 {
-                    richTextBox1.SaveFile(fileName, RichTextBoxStreamType.PlainText);
+                    richTextBox1.SaveFile(currentFilePath, RichTextBoxStreamType.PlainText);
                 }
                 else if (ext == ".rtf")
                 {
-                    richTextBox1.SaveFile(fileName, RichTextBoxStreamType.RichText);
+                    richTextBox1.SaveFile(currentFilePath, RichTextBoxStreamType.RichText);
+                }
+            }
+        }
+        private void XuLySave(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(currentFilePath))
+            {
+                XuLySaveAs(sender, e); // Gọi hàm Save As ở trên
+            }
+            else
+            {
+
+                var ext = System.IO.Path.GetExtension(currentFilePath).ToLower();
+                if (ext == ".txt")
+                {
+                    richTextBox1.SaveFile(currentFilePath, RichTextBoxStreamType.PlainText);
+                }
+                else if (ext == ".rtf")
+                {
+                    richTextBox1.SaveFile(currentFilePath, RichTextBoxStreamType.RichText);
                 }
             }
         }
@@ -122,7 +151,7 @@ namespace Word_PAD__01_
         {
             Font currentFont = richTextBox1.SelectionFont ?? richTextBox1.Font;
             FontStyle newFontStyle;
-            if (currentFont.Underline) 
+            if (currentFont.Underline)
             {
                 newFontStyle = currentFont.Style & ~FontStyle.Underline;
             }
@@ -192,9 +221,108 @@ namespace Word_PAD__01_
             }
         }
 
+
         private void pastToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.Paste();
+        }
+
+        private void XuLyUndo(object sender, EventArgs e)
+        {
+            if (richTextBox1.CanUndo)
+            {
+                richTextBox1.Undo();
+            }
+        }
+
+        private void XuLyRedo(object sender, EventArgs e)
+        {
+            if (richTextBox1.CanRedo)
+            {
+                richTextBox1.Redo();
+            }
+        }
+
+        private void CanGiua(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+        }
+
+        private void CanPhai(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
+
+        }
+
+        private void CanTrai(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
+        }
+
+        private void DoiMauNen(object sender, EventArgs e)
+        {
+            var colorDialog = new ColorDialog();
+            colorDialog.Color = richTextBox1.BackColor;
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                richTextBox1.BackColor = colorDialog.Color;
+            }
+        }
+
+        private void XuLyNew(object sender, EventArgs e)
+        {
+         
+       
+            if (!string.IsNullOrWhiteSpace(richTextBox1.Text))
+            {
+                DialogResult result = MessageBox.Show(
+                    "Bạn có muốn lưu file hiện tại không?",
+                    "Thông báo",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    XuLySave(sender, e);
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    return; 
+                }
+              
+            }
+
+            richTextBox1.Clear();
+            currentFilePath = string.Empty;
+        }
+
+        private void XuLyChenAnh(object sender, EventArgs e) {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        Image img = Image.FromFile(ofd.FileName);
+                        Clipboard.SetImage(img);
+                        richTextBox1.Paste();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Không thể chèn ảnh: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void XuLyBullet(object sender, EventArgs e) {
+            richTextBox1.SelectionBullet = !richTextBox1.SelectionBullet;
+        }
+
+        private void Inf(object sender, EventArgs e) { 
+            frmIF fif = new frmIF();
+            fif.ShowDialog();
         }
     }
 }
