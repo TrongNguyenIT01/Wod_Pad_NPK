@@ -14,7 +14,7 @@ namespace Word_PAD__01_
     {
         private string currentFilePath = string.Empty;
 
-       
+
         public Form1()
         {
             InitializeComponent();
@@ -195,14 +195,7 @@ namespace Word_PAD__01_
 
         private void leftToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (richTextBox1.SelectionAlignment == HorizontalAlignment.Left)
-            {
-                richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
-            }
-            else
-            {
-                richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
-            }
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -243,21 +236,6 @@ namespace Word_PAD__01_
             }
         }
 
-        private void CanGiua(object sender, EventArgs e)
-        {
-            richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
-        }
-
-        private void CanPhai(object sender, EventArgs e)
-        {
-            richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
-
-        }
-
-        private void CanTrai(object sender, EventArgs e)
-        {
-            richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
-        }
 
         private void DoiMauNen(object sender, EventArgs e)
         {
@@ -271,8 +249,8 @@ namespace Word_PAD__01_
 
         private void XuLyNew(object sender, EventArgs e)
         {
-         
-       
+
+
             if (!string.IsNullOrWhiteSpace(richTextBox1.Text))
             {
                 DialogResult result = MessageBox.Show(
@@ -287,16 +265,17 @@ namespace Word_PAD__01_
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    return; 
+                    return;
                 }
-              
+
             }
 
             richTextBox1.Clear();
             currentFilePath = string.Empty;
         }
 
-        private void XuLyChenAnh(object sender, EventArgs e) {
+        private void XuLyChenAnh(object sender, EventArgs e)
+        {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
@@ -316,13 +295,71 @@ namespace Word_PAD__01_
             }
         }
 
-        private void XuLyBullet(object sender, EventArgs e) {
+        private void XuLyBullet(object sender, EventArgs e)
+        {
             richTextBox1.SelectionBullet = !richTextBox1.SelectionBullet;
         }
 
-        private void Inf(object sender, EventArgs e) { 
+        private void Inf(object sender, EventArgs e)
+        {
             frmIF fif = new frmIF();
             fif.ShowDialog();
         }
+
+        private void thutle5pts_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionIndent == 5)
+            {
+                richTextBox1.SelectionIndent = 0; // thụt lề 20 pixels
+            }
+            else
+            {
+                richTextBox1.SelectionIndent = 5; // bỏ thụt lề
+            }
+        }
+
+        private void thutle10pts_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionIndent == 10)
+            {
+                richTextBox1.SelectionIndent = 0; // thụt lề 20 pixels
+            }
+            else
+            {
+                richTextBox1.SelectionIndent = 10; // bỏ thụt lề
+            }
+        }
+
+        private void thutle15pts_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionIndent == 15)
+            {
+                richTextBox1.SelectionIndent = 0; // thụt lề 20 pixels
+            }
+            else
+            {
+                richTextBox1.SelectionIndent = 15; // bỏ thụt lề
+            }
+        }
+
+        private void thutle20pts_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionIndent == 20)
+            {
+                richTextBox1.SelectionIndent = 0; // thụt lề 20 pixels
+            }
+            else
+            {
+                richTextBox1.SelectionIndent = 20; // bỏ thụt lề
+            }
+        }
+
+        private void nonethutle_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionIndent = 0; // bỏ thụt lề
+        }
+
+
+
     }
 }
