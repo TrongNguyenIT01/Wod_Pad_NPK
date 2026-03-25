@@ -70,7 +70,7 @@
             this.parToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ptsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pts5 = new System.Windows.Forms.ToolStripMenuItem();
             this.ptsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ptsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.ptsToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -419,7 +419,7 @@
             // 
             this.indentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.noneToolStripMenuItem,
-            this.ptsToolStripMenuItem,
+            this.pts5,
             this.ptsToolStripMenuItem1,
             this.ptsToolStripMenuItem2,
             this.ptsToolStripMenuItem3});
@@ -432,30 +432,34 @@
             this.noneToolStripMenuItem.Name = "noneToolStripMenuItem";
             this.noneToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.noneToolStripMenuItem.Text = "None";
+            this.noneToolStripMenuItem.Click += new System.EventHandler(this.nonethutle_Click);
             // 
-            // ptsToolStripMenuItem
+            // pts5
             // 
-            this.ptsToolStripMenuItem.Name = "ptsToolStripMenuItem";
-            this.ptsToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
-            this.ptsToolStripMenuItem.Text = "5 pts";
+            this.pts5.Name = "pts5";
+            this.pts5.Size = new System.Drawing.Size(224, 26);
+            this.pts5.Text = "5 pts";
             // 
             // ptsToolStripMenuItem1
             // 
             this.ptsToolStripMenuItem1.Name = "ptsToolStripMenuItem1";
-            this.ptsToolStripMenuItem1.Size = new System.Drawing.Size(132, 26);
+            this.ptsToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.ptsToolStripMenuItem1.Text = "10 pts";
+            this.ptsToolStripMenuItem1.Click += new System.EventHandler(this.thutle10pts_Click);
             // 
             // ptsToolStripMenuItem2
             // 
             this.ptsToolStripMenuItem2.Name = "ptsToolStripMenuItem2";
-            this.ptsToolStripMenuItem2.Size = new System.Drawing.Size(132, 26);
+            this.ptsToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.ptsToolStripMenuItem2.Text = "15 pts";
+            this.ptsToolStripMenuItem2.Click += new System.EventHandler(this.thutle15pts_Click);
             // 
             // ptsToolStripMenuItem3
             // 
             this.ptsToolStripMenuItem3.Name = "ptsToolStripMenuItem3";
-            this.ptsToolStripMenuItem3.Size = new System.Drawing.Size(132, 26);
+            this.ptsToolStripMenuItem3.Size = new System.Drawing.Size(224, 26);
             this.ptsToolStripMenuItem3.Text = "20 pts";
+            this.ptsToolStripMenuItem3.Click += new System.EventHandler(this.thutle20pts_Click);
             // 
             // alignToolStripMenuItem
             // 
@@ -470,21 +474,21 @@
             // leftToolStripMenuItem
             // 
             this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
-            this.leftToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
+            this.leftToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.leftToolStripMenuItem.Text = "Left";
             this.leftToolStripMenuItem.Click += new System.EventHandler(this.leftToolStripMenuItem_Click);
             // 
             // centerToolStripMenuItem
             // 
             this.centerToolStripMenuItem.Name = "centerToolStripMenuItem";
-            this.centerToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
+            this.centerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.centerToolStripMenuItem.Text = "Center";
             this.centerToolStripMenuItem.Click += new System.EventHandler(this.centerToolStripMenuItem_Click);
             // 
             // rightToolStripMenuItem
             // 
             this.rightToolStripMenuItem.Name = "rightToolStripMenuItem";
-            this.rightToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
+            this.rightToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.rightToolStripMenuItem.Text = "Right";
             this.rightToolStripMenuItem.Click += new System.EventHandler(this.rightToolStripMenuItem_Click);
             // 
@@ -608,7 +612,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(34, 34);
             this.toolStripButton4.Text = "toolStripButton4";
-            this.toolStripButton4.Click += new System.EventHandler(this.CanTrai);
+            this.toolStripButton4.Click += new System.EventHandler(this.leftToolStripMenuItem_Click);
             // 
             // toolStripButton6
             // 
@@ -618,7 +622,7 @@
             this.toolStripButton6.Name = "toolStripButton6";
             this.toolStripButton6.Size = new System.Drawing.Size(34, 34);
             this.toolStripButton6.Text = "toolStripButton6";
-            this.toolStripButton6.Click += new System.EventHandler(this.CanGiua);
+            this.toolStripButton6.Click += new System.EventHandler(this.centerToolStripMenuItem_Click);
             // 
             // toolStripButton7
             // 
@@ -628,7 +632,7 @@
             this.toolStripButton7.Name = "toolStripButton7";
             this.toolStripButton7.Size = new System.Drawing.Size(34, 34);
             this.toolStripButton7.Text = "toolStripButton7";
-            this.toolStripButton7.Click += new System.EventHandler(this.CanPhai);
+            this.toolStripButton7.Click += new System.EventHandler(this.rightToolStripMenuItem_Click);
             // 
             // toolStripSeparator13
             // 
@@ -787,7 +791,7 @@
         private System.Windows.Forms.ToolStripMenuItem parToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem indentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem noneToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ptsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pts5;
         private System.Windows.Forms.ToolStripMenuItem ptsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ptsToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem ptsToolStripMenuItem3;
