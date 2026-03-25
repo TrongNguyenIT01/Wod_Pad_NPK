@@ -324,5 +324,11 @@ namespace Word_PAD__01_
             frmIF fif = new frmIF();
             fif.ShowDialog();
         }
+
+        private void selectall_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectAll();
+            richTextBox1.Focus();
+        }
     }
 }
