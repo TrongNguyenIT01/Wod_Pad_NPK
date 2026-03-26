@@ -99,12 +99,13 @@
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.btnzoomout = new System.Windows.Forms.ToolStripButton();
             this.btnzoomin = new System.Windows.Forms.ToolStripButton();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -554,7 +555,8 @@
             this.toolStripButton12,
             this.toolStripSeparator14,
             this.btnzoomout,
-            this.btnzoomin});
+            this.btnzoomin,
+            this.toolStripButton8});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1042, 37);
@@ -653,6 +655,7 @@
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(34, 34);
             this.btnFind.Text = "toolStripButton8";
+            this.btnFind.Click += new System.EventHandler(this.TimKiem_click);
             // 
             // toolStripButton9
             // 
@@ -694,6 +697,31 @@
             this.toolStripButton12.Text = "toolStripButton12";
             this.toolStripButton12.Click += new System.EventHandler(this.frontColorToolStripMenuItem_Click);
             // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 37);
+            // 
+            // btnzoomout
+            // 
+            this.btnzoomout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnzoomout.Image = ((System.Drawing.Image)(resources.GetObject("btnzoomout.Image")));
+            this.btnzoomout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnzoomout.Name = "btnzoomout";
+            this.btnzoomout.Size = new System.Drawing.Size(34, 34);
+            this.btnzoomout.Text = "toolStripButton13";
+            this.btnzoomout.Click += new System.EventHandler(this.btnzoomout_Click);
+            // 
+            // btnzoomin
+            // 
+            this.btnzoomin.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnzoomin.Image = ((System.Drawing.Image)(resources.GetObject("btnzoomin.Image")));
+            this.btnzoomin.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnzoomin.Name = "btnzoomin";
+            this.btnzoomin.Size = new System.Drawing.Size(34, 34);
+            this.btnzoomin.Text = "toolStripButton14";
+            this.btnzoomin.Click += new System.EventHandler(this.btnzoomin_Click);
+            // 
             // richTextBox1
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -721,30 +749,15 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // toolStripSeparator14
+            // toolStripButton8
             // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 37);
-            // 
-            // btnzoomout
-            // 
-            this.btnzoomout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnzoomout.Image = ((System.Drawing.Image)(resources.GetObject("btnzoomout.Image")));
-            this.btnzoomout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnzoomout.Name = "btnzoomout";
-            this.btnzoomout.Size = new System.Drawing.Size(34, 34);
-            this.btnzoomout.Text = "toolStripButton13";
-            this.btnzoomout.Click += new System.EventHandler(this.btnzoomout_Click);
-            // 
-            // btnzoomin
-            // 
-            this.btnzoomin.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnzoomin.Image = ((System.Drawing.Image)(resources.GetObject("btnzoomin.Image")));
-            this.btnzoomin.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnzoomin.Name = "btnzoomin";
-            this.btnzoomin.Size = new System.Drawing.Size(34, 34);
-            this.btnzoomin.Text = "toolStripButton14";
-            this.btnzoomin.Click += new System.EventHandler(this.btnzoomin_Click);
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(34, 34);
+            this.toolStripButton8.Text = "toolStripButton8";
+            this.toolStripButton8.Click += new System.EventHandler(this.replace_Click);
             // 
             // Form1
             // 
@@ -847,6 +860,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripButton btnzoomout;
         private System.Windows.Forms.ToolStripButton btnzoomin;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
     }
 }
 
