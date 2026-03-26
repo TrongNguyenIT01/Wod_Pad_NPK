@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace Word_PAD__01_
 {
@@ -358,8 +359,6 @@ namespace Word_PAD__01_
         {
             richTextBox1.SelectionIndent = 0; // bỏ thụt lề
         }
-
-
 
     }
 }
