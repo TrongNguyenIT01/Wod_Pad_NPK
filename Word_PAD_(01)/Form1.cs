@@ -360,5 +360,26 @@ namespace Word_PAD__01_
             richTextBox1.SelectionIndent = 0; // bỏ thụt lề
         }
 
+        private void selectall_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectAll();
+            richTextBox1.Focus();
+        }
+
+        private void btnzoomout_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.ZoomFactor > 0.5f)
+            {
+                richTextBox1.ZoomFactor -= 0.2f;
+            }
+        }
+
+        private void btnzoomin_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.ZoomFactor < 64.0f)
+            {
+                richTextBox1.ZoomFactor += 0.2f;
+            }
+        }
     }
 }
