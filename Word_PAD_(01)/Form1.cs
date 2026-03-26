@@ -399,7 +399,14 @@ namespace Word_PAD__01_
                     if (index != -1)
                     {
                         richTextBox1.Select(index, keyword.Length);
-                        richTextBox1.SelectionBackColor = Color.Yellow; // Đánh dấu bằng màu vàng
+                        if (richTextBox1.SelectionBackColor == Color.Yellow)
+                        {
+                            richTextBox1.SelectionBackColor = Color.Green; // Hoặc Color.White
+                        }
+                        else 
+                        { 
+                            richTextBox1.SelectionBackColor = Color.Yellow; // Đánh dấu bằng màu vàng
+                        }
                         startIndex = index + keyword.Length; // Tiếp tục tìm kiếm từ vị trí sau từ khóa vừa tìm
                     }
                     else
