@@ -105,7 +105,6 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -555,8 +554,7 @@
             this.toolStripButton12,
             this.toolStripSeparator14,
             this.btnzoomout,
-            this.btnzoomin,
-            this.toolStripButton8});
+            this.btnzoomin});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1042, 37);
@@ -655,7 +653,7 @@
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(34, 34);
             this.btnFind.Text = "toolStripButton8";
-            this.btnFind.Click += new System.EventHandler(this.TimKiem_click);
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // toolStripButton9
             // 
@@ -748,16 +746,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButton8.Text = "toolStripButton8";
-            this.toolStripButton8.Click += new System.EventHandler(this.replace_Click);
             // 
             // Form1
             // 
@@ -860,7 +848,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripButton btnzoomout;
         private System.Windows.Forms.ToolStripButton btnzoomin;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
     }
 }
 

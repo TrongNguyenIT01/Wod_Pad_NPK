@@ -382,53 +382,11 @@ namespace Word_PAD__01_
             }
         }
 
-        private void TimKiem_click(object sender, EventArgs e)
+        private void btnFind_Click(object sender, EventArgs e)
         {
-            // Hiển thị hộp thoại nhập từ khóa tìm kiếm
-            // tìm kiếm tất cả các vị trí của từ khóa trong văn bản và đánh dấu chúng bằng cách thay đổi màu nền của chúng tạm thời
-            string keyword = Interaction.InputBox("Nhập từ khóa tìm kiếm:", "Tìm kiếm", "");
-            if (keyword != null)
-            {
-                richTextBox1.SelectAll();
-                richTextBox1.SelectionBackColor = richTextBox1.BackColor; // Hoặc Color.White
-                richTextBox1.DeselectAll();
-                int startIndex = 0;
-                while (startIndex < richTextBox1.TextLength)
-                {
-                    int index = richTextBox1.Find(keyword, startIndex, RichTextBoxFinds.None);
-                    if (index != -1)
-                    {
-                        richTextBox1.Select(index, keyword.Length);
-                        if (richTextBox1.SelectionBackColor == Color.Yellow)
-                        {
-                            richTextBox1.SelectionBackColor = Color.Green; // Hoặc Color.White
-                        }
-                        else 
-                        { 
-                            richTextBox1.SelectionBackColor = Color.Yellow; // Đánh dấu bằng màu vàng
-                        }
-                        startIndex = index + keyword.Length; // Tiếp tục tìm kiếm từ vị trí sau từ khóa vừa tìm
-                    }
-                    else
-                    {
-                        break; // Không tìm thấy nữa, thoát vòng lặp
-                    }
-                }
-            }
+            FindAndReplace frm = new FindAndReplace(richTextBox1);
+            frm.Show();
         }
 
-        private void replace_Click(object sender, EventArgs e)
-        {
-            // Hiển thị hộp thoại nhập từ khóa tìm kiếm và từ khóa thay thế
-            string keyword = Interaction.InputBox("Nhập từ khóa tìm kiếm:", "Thay thế", "");
-            if (keyword != null)
-            {
-                string replacement = Interaction.InputBox("Nhập từ khóa thay thế:", "Thay thế", "");
-                if (replacement != null)
-                {
-                    richTextBox1.Text = richTextBox1.Text.Replace(keyword, replacement);
-                }
-            }
-        }
     }
 }
