@@ -8,17 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Drawing.Printing;
 
 namespace Word_PAD__01_
 {
     public partial class Form1 : Form
     {
         private string currentFilePath = string.Empty;
+        private PrintDocument printDocument1 = new PrintDocument();
+        private PrintDialog printDialog1 = new PrintDialog();
 
 
         public Form1()
         {
             InitializeComponent();
+            InitializePrintComponents();
+        }
+
+        private void UpdateStatusLabel(string status)
+        {
+            toolStripStatusLabel1.Text = status;
         }
 
         private void XuLyOpenClick(object sender, EventArgs e)
@@ -38,13 +47,19 @@ namespace Word_PAD__01_
                 {
                     richTextBox1.LoadFile(fileName, RichTextBoxStreamType.RichText);
                 }
+
+                currentFilePath = fileName;
+                UpdateStatusLabel("Saved");
             }
-
-            currentFilePath = ofd.FileName;
-
-
         }
 
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(currentFilePath))
+            {
+                UpdateStatusLabel("Edited");
+            }
+        }
 
         private void XuLySaveAs(object sender, EventArgs e)
         {
@@ -388,5 +403,28 @@ namespace Word_PAD__01_
             frm.Show();
         }
 
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InitializePrintComponents()
+        {
+            printDocument1.PrintPage += new PrintPageEventHandler(PrintDocument1_PrintPage);
+        }
+
+        private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(richTextBox1.Text, richTextBox1.Font, Brushes.Black, e.MarginBounds, StringFormat.GenericTypographic);
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printDialog1.Document = printDocument1;
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
     }
 }
