@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using System.Drawing.Printing;
+using System.IO;
+
 
 namespace Word_PAD__01_
 {
@@ -32,16 +34,18 @@ namespace Word_PAD__01_
 
         private void XuLyOpenClick(object sender, EventArgs e)
         {
+
             var ofd = new OpenFileDialog();
-            ofd.Filter = "Text files |*txt | My Word| *rtf";
+            ofd.Filter = "Text files (*.txt)|*.txt|Rich Text Format (*.rtf)|*.rtf";
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 var fileName = ofd.FileName;
                 var ext = System.IO.Path.GetExtension(fileName);
+
                 if (ext == ".txt")
                 {
-                    richTextBox1.LoadFile(fileName, RichTextBoxStreamType.PlainText);
+                    richTextBox1.Text = File.ReadAllText(fileName, Encoding.UTF8);
                 }
                 else if (ext == ".rtf")
                 {
@@ -73,7 +77,7 @@ namespace Word_PAD__01_
                 var ext = System.IO.Path.GetExtension(currentFilePath).ToLower();
                 if (ext == ".txt")
                 {
-                    richTextBox1.SaveFile(currentFilePath, RichTextBoxStreamType.PlainText);
+                    File.WriteAllText(currentFilePath, richTextBox1.Text, Encoding.UTF8);
                 }
                 else if (ext == ".rtf")
                 {
@@ -94,7 +98,7 @@ namespace Word_PAD__01_
                 var ext = System.IO.Path.GetExtension(currentFilePath).ToLower();
                 if (ext == ".txt")
                 {
-                    richTextBox1.SaveFile(currentFilePath, RichTextBoxStreamType.PlainText);
+                    File.WriteAllText(currentFilePath, richTextBox1.Text, Encoding.UTF8);
                 }
                 else if (ext == ".rtf")
                 {
